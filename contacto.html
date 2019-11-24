@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pets World</title>
+    <style>
+        .body {
+            background: url("imagenes/huellas.jpg");
+            height: 72vh;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .redsocial {
+            width: 40px;
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <!--FIrebase-->
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+    <script src="js/frb.js"></script>
+
+
+</head>
+<body>
+
+    <!--Nav-->
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top text-light">
+        <a class="navbar-brand ">
+            <img src="imagenes/64431.png" width="35" height="35" class="d-inline-block align-top" alt="">
+            Pets Power
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav mr-auto ">
+                <a class="nav-item nav-link" href="index.html">Inicio</a>
+                <a class="nav-item nav-link" href="cuidado.html">Cuidados</a>
+                <a class="nav-item nav-link active" href="contacto.html">Contacto</a>
+                <div class="dropdown ">
+                    <button class="btn dropdown-toggle " style="color: rgb(128,189,255);" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Servicios
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Publicar mascota</a>
+                        <a class="dropdown-item" href="#">Denuncia maltrato</a>
+                        <a class="dropdown-item" href="#">Servicios veterinarios</a>
+                        <a class="dropdown-item" href="#">Productos y Accesorios</a>
+
+                    </div>
+                </div>
+
+
+            </div>
+            <form class="form-inline my-2 my-lg-0">
+                <div>
+                    <input type="email" id="emailInicio" placeholder="Email" value="" class="form-control-sm mr-sm-2" />
+                    <input type="password" id="passInicio" placeholder="Password" value="" class="form-control-sm mr-sm-2" />
+                    <button class="btn btn-sm btn-outline-light my-2 mr-2" id="btnSesion">Iniciar Sesion</button>
+                    <button class="btn btn-sm btn-outline-light my-2 " data-toggle="modal" data-target="#exampleModal">Registrar</button>
+
+                </div>
+            </form>
+
+        </div>
+        
+    </nav>
+    <!--Fin nav-->
+
+    <!--inicio modal Registro-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Registro</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <input type="email" id="email" placeholder="Email" value="" class="form-control form-control-sm mr-sm-2 mb-2 pb-2" required />
+                    <input type="password" id="pass" placeholder="Password" value="" class="form-control form-control-sm mr-sm-2" required />
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" id="btnRegistro" class="btn btn-primary">Registrar</button>
+
+                </div>
+
+                <div class="container " id="contenido"></div>
+
+            </div>
+        </div>
+    </div>
+    <!--fin modal-->
+
+   
+    <!--Formulario contacto-->
+    <div class="contain-fluid body">
+        <div class="container ">
+            <div class="row">
+                <div class="col-xs-6 col-md-6">
+                    <h3 class="mt-3 pt-4 display-3 text-muted">Contacto</h3>
+
+                    <form id="formulario" role="form" action="" method="POST">
+
+                        <div class="form-group">
+                            <label for="nombre">Nombre de usuario</label>
+                            <input id="nombre" type="text" name="nombre" class="form-control" required>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input id="email" type="email" name="email" class="form-control" required>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" class="form-control" rows="6" required></textarea>
+                        </div>
+
+
+                        <input id="submit_button" name="enviar" type="submit" value="Enviar" class="mb-4" />
+
+                        <button id="borrar" type="reset">Borrar</button>
+
+
+                        <div id="resultado"></div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Fin formulario contacto-->
+
+
+
+
+    <!--Footer-->
+    <section class="contain-fluid row d-none  d-md-none d-lg-block">
+        <div class="card text-center col-12 ">
+            <div class="card-header">
+                <a href="#">Quienes somos?</a>
+            </div>
+            <div class="card-body">
+                <a href="https://www.facebook.com/?ref=logo"><img src="imagenes/face.png" class="redsocial" /></a>
+                <a href="https://www.instagram.com/"><img src="imagenes/itgm.png" class="redsocial" /></a>
+            </div>
+            <div class="card-footer text-muted text-right">
+                Derechos Reservados 2019
+            </div>
+        </div>
+    </section>
+    <!--Fin Footer-->
+
+
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+
+    <script src="js/app.js"></script>
+
+
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/conecta.js"></script>
+</body>
+</html>
