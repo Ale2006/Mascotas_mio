@@ -25,3 +25,7 @@ Cómo una persona con tiempo acotados Quiero un lugar donde encontrar diferentes
 Mariela una chica que trabaja todo el dia, no tiene tiempo para bañar y poner coqueto a su beagle, pero tampoco quiere llevarlo a cualquier lugar, donde no sabe si le van a dar todo los cuidados que necesita y lo van a dejar como a ella le gustaria. Por eso, la pagina le brinda todos las peluquerias caninas en la zona seleccionada, con fotos y reseñas de los clientes filtrando por relevancia.
 
 Link para la plantilla del modelo de BBDD https://docs.google.com/spreadsheets/d/1FvMGOgJbpSVvbvBB-4zaHg9ocSBKCbbuXUcYCpAh8LY/edit?usp=sharing Link con funciones para script de google doc https://sites.google.com/a/artazaromo.com/ikttic/gas?tmpl=%2Fsystem%2Fapp%2Ftemplates%2Fprint%2F&showPrintDialog=1
+
+
+
+https://mascotasale.000webhostapp.com/
